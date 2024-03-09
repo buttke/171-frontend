@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="">
+<head>
+    <title>E COMMERCE</title>
+    <link rel="stylesheet" href="/static/missing.css">
+    <link rel="stylesheet" href="/static/site.css">
+    <script src="/static/js/htmx-1.8.0.js"></script>
+    <!--<script src="/static/js/_hyperscript-0.9.7.js"></script>-->
+    <!--<script src="/static/js/rsjs-menu.js" type="module"></script>-->
+    <!--<script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>-->
+    <style>
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .form-row label {
+            flex-basis: 20%;
+            min-width: 120px;
+        }
+        .form-row input, .form-row select {
+            flex-grow: 1;
+        }
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <header>
+        <h1>
+            ECOMMERCE
+            <sub-title>predict user purchases</sub-title>
+        </h1>
+    </header>
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
+
