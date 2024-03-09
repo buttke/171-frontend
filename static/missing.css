@@ -1729,7 +1729,7 @@ button.iconbutton[aria-pressed=true] {
 
 	/* Lengths */
 	--rhythm: 1.4rem; /* Vertical rhythm, line height. */
-	--line-length: 40rem; /* Maximum line length for prose. */
+	--line-length: 90rem; /* Maximum line length for prose. */
 	--border-radius: .2rem;
 
 	/* Fonts */

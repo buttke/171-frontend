@@ -16,6 +16,10 @@ app = Flask(__name__)
 
 # app.secret_key = b'hypermedia rocks'
 
+@app.route("/product")
+def product():
+    # modify product tracking variables here
+    return render_template("product.html")
 
 @app.route("/")
 def index():
@@ -24,6 +28,10 @@ def index():
 @app.route("/form")
 def form_route():
     return render_template("form.html")
+
+@app.route('/sim-shop')
+def sim_shop():
+    return render_template('sim_shop.html')
 
 @app.route("/search")
 def search():
