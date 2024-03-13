@@ -1,0 +1,9 @@
+{% if is_revenue_good %}
+<div id="predict" class="box ok" style="display:flex;">
+    <p style="margin:auto;"> Prediction: Revenue </p>
+</div>
+{% else %}
+<div id="predict" class="box bad" style="display:flex;">
+    <p style="margin:auto;"> Prediction: No Revenue </p>
+</div>
+{% endif %}

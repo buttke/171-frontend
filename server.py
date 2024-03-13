@@ -2,11 +2,11 @@ from flask import (
     Flask, session, redirect, render_template, request, flash, jsonify, send_file, abort
 )
 import time
-import os
-import pandas as pd
-import csv
-import pickle
 from datetime import datetime
+import pandas as pd
+
+# Defined in models.py
+from models import ModelMgr
 
 
 # ========================================================
@@ -17,10 +17,8 @@ from datetime import datetime
 app = Flask(__name__)
 
 app.secret_key = b'example'
-#app.config['SECRET_KEY'] = b'example'
 
-#TODO
-#Session(app)
+models = ModelMgr()
 
 jpg_map = {
         'coaster' : 'https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80',
@@ -133,6 +131,32 @@ def product():
                            product_image_url=product_image_url)
 
 
+@app.route('/leftover-fields', methods=['POST'])
+def leftovers():
+    # Extracting form data
+
+    leftover_fields = {
+            'Browser': int(request.form['Browser']),
+            'OperatingSystems': int(request.form['OperatingSystems']),
+            'VisitorType': str(request.form['VisitorType']),
+            'BounceRates': float(request.form['BounceRates']),
+            'ExitRates': float(request.form['ExitRates']),
+            'PageValues': float(request.form['PageValues']),
+            'SpecialDay': float(request.form['SpecialDay']),
+            }
+
+    if 'userdata' not in session:
+        session['userdata'] = init_user_data()
+
+    userdata = session['userdata']
+
+    combined_df = models.preproc_userdata(userdata, leftover_fields)
+    pred = models.gbdt.predict(combined_df)
+
+    is_revenue_good = (pred[0] == 1)
+    return render_template("predict.html", is_revenue_good=is_revenue_good)
+
+
 @app.route('/reset', methods=['POST'])
 def reset():
     if request.method == 'POST':
@@ -190,4 +214,4 @@ def form_route():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(port=5001, debug=True)

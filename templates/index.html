@@ -23,27 +23,77 @@ iframe {
 
 
 <body>
-    <a href="/form"><h2>CLICK HERE for complete manual attribute value entry</h2></a>
+    <p><a href="/form">CLICK HERE for complete manual attribute value entry</a></p>
+
+    <form hx-post="/leftover-fields" hx-trigger="change" hx-target="#predict" hx-swap="outerHTML">
+        <table>
+            <thead>
+                <tr>
+                    <th><code>Browser</code></th>
+                    <th><code>OperatingSystems</code></th>
+                    <th><code>VisitorType</code></th>
+                    <th><code>BounceRates</code></th>
+                    <th><code>ExitRates</code></th>
+                    <th><code>PageValues</code></th>
+                    <th><code>SpecialDay</code></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="Browser">
+                            {% for i in range(1, 14) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select name="OperatingSystems">
+                            {% for i in range(1, 9) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td>
+                        <select name="VisitorType">
+                            <option value="Returning_Visitor">Returning Visitor</option>
+                            <option value="New_Visitor">New Visitor</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="number" name="BounceRates" step="0.01" min="0" max="1"></td>
+                    <td><input type="number" name="ExitRates" step="0.01" min="0" max="1"></td>
+                    <td><input type="number" name="PageValues" step="0.01" min="0" max="360"></td>
+                    <td><input type="number" name="SpecialDay" step="0.01" min="0" max="1"></td>
+                </tr>
+            </tbody>
+        </table>
+        <!--<input type="submit">-->    
+    </form>
 
 
-    <table id="usertable" hx-get="/usertable" hx-trigger="specialClick" hx-swap="outerHTML">
-        <thead>
-            <tr>
-                <th>Attribute</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><code>Attr_Here</code></td>
-                <td><i>x</i></td>
-            </tr>
-        </tbody>
-    </table>
 
-   <div class="box" style="display:flex">
-       <h2 style="margin:auto"> Prediction: Purchase or no purchase </h2>
-   </div class="box">
+    <div id="usertable" hx-get="/usertable" hx-trigger="specialClick" hx-swap="outerHTML">
+        <table>
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>Attr_Here</code></td>
+                    <td><i>x</i></td>
+                </tr>
+            </tbody>
+        </table>
+
+       <div id="predict" class="box" style="display:flex">
+           <p style="margin:auto"> Prediction: Purchase or no purchase </p>
+       </div class="box">
+
+    </div>
 
 
     <div class="box grid">
