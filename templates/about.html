@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product_name }}</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+
+    <script>
+        document.addEventListener('click', function() {
+            window.parent.postMessage('iframeClicked', '*'); // Adjust '*' to a more specific origin for security
+        });
+    </script>
+
+    <style>
+        .work-sans {
+            font-family: 'Work Sans', sans-serif;
+        }
+                
+        #menu-toggle:checked + #menu {
+            display: block;
+        }
+        
+        .hover\:grow {
+            transition: all 0.3s;
+            transform: scale(1);
+        }
+        
+        .hover\:grow:hover {
+            transform: scale(1.02);
+        }
+        
+    </style>
+
+
+</head>
+<body class="work-sans bg-gray-100">
+    <div class="container mx-auto mt-10">
+        <div class="bg-white p-5 rounded shadow-sm">
+            <div class="mb-4">
+                <a href="/sim-shop" class="text-blue-500 hover:text-blue-700">Back</a>
+            </div>
+            <div class="text-center">
+
+                <h1 class="text-lg mt-2">This is the About page</h1>
+                <img src="/static/settings.jpg" alt="You configuring your e-commerce settings" class="hover:grow" style="width:50em;margin:auto">
+                <h1 class="text-lg mt-2">This is the About page</h1>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

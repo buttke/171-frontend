@@ -1,0 +1,16 @@
+<table id="usertable" hx-get="/usertable" hx-trigger="specialClick" hx-swap="outerHTML">
+    <thead>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for attr, value in data.items() %}
+        <tr>
+            <td><code>{{ attr }}</code></td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

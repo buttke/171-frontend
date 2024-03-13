@@ -12,6 +12,16 @@
     <script src="/static/js/rsjs-menu.js" type="module"></script>
     <script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>
 
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data === 'iframeClicked') {
+                // Manually trigger the HTMX request here
+                htmx.trigger(document.querySelector('#usertable'), 'specialClick');
+            }
+        });
+    </script>
+
+
     <style>
         .form-section {
             margin-bottom: 20px;

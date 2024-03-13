@@ -1735,7 +1735,7 @@ button.iconbutton[aria-pressed=true] {
 	/* Fonts */
 	--main-font: 'Arial', 'Helvetica', sans-serif;
 	--secondary-font: var(--main-font); /* Headings etc. */
-	--mono-font: 'M Plus Code Latin', monospace, monospace; /* monospace twice stops browsers from
+	--mono-font: 'Cascadia Code', 'M Plus Code Latin', monospace, monospace; /* monospace twice stops browsers from
 		shrinking this */
 	
 	/* Density */

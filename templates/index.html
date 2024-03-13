@@ -1,11 +1,6 @@
-{% extends 'deflayout.html' %}
+{% extends 'ind_head.html' %}
 
 {% block content %}
-
-<!--<form hx-get="/search" hx-target="#search-results" hx-trigger="submit">-->
-<!--<input type="text" name="q" placeholder="Search...">-->
-<!--<input type="submit" value="Search">-->
-<!--</form>-->
 
 <style>
 /* Override for main content width */
@@ -19,11 +14,50 @@ iframe {
   width: 100em; /* Full width of their parent container */
   height: 70em; /* Specify a height, or adjust as needed */
 }
+
+#usertable {
+    font-size: 1.5em;
+    line-height: calc(var(--rhythm) * 4 / 3)
+}
 </style>
 
 
 <body>
-    <h3> Prediction: Purchase or no purchase </h3>
+    <a href="/form"><h2>CLICK HERE for complete manual attribute value entry</h2></a>
+
+
+    <table id="usertable" hx-get="/usertable" hx-trigger="specialClick" hx-swap="outerHTML">
+        <thead>
+            <tr>
+                <th>Attribute</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Attr_Here</code></td>
+                <td><i>x</i></td>
+            </tr>
+        </tbody>
+    </table>
+
+   <div class="box" style="display:flex">
+       <h2 style="margin:auto"> Prediction: Purchase or no purchase </h2>
+   </div class="box">
+
+
+    <div class="box grid">
+
+        <a class="box bad" style="display:flex" hx-post="/reset" hx-target="#usertable" hx-swap="outerHTML" data-cols="1 3" data-rows="1">
+            <p style="margin:auto;font-size:1.5em"> Reset counters </p>
+        </a>
+
+        <a class="box info" style="display:flex" hx-post="/refresh" hx-target="#usertable" hx-swap="outerHTML" data-cols="4 6" data-rows="1">
+            <p style="margin:auto;font-size:1.5em"> Refresh Data </p>
+        </a>
+
+    </div>
+
     <iframe src="/sim-shop"></iframe>
 </body>
 
