@@ -1,5 +1,7 @@
 # HOW TO RUN
 
+## SETUP
+
 (Assuming you already pulled the repo and have a shell in it)
 
 (`git clone git@github.com:buttke/171-frontend.git` etc.)
@@ -34,6 +36,7 @@ Once the venv is active, run
 pip install -r requirements.txt
 ```
 
+## RUN
 
 Then you may simply run the server:
 
