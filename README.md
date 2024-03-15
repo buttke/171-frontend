@@ -45,3 +45,18 @@ python server.py
 ```
 
 Which will now be accessible from a web browser at [http://127.0.0.1:5001](http://127.0.0.1:5001)
+
+
+# SOURCES USED:
+
+embedded store based on this HTML template:
+
+https://github.com/tailwindtoolbox/Nordic-Store
+
+#### HTMX
+
+https://htmx.org/
+
+#### Flask
+
+https://github.com/pallets/flask/
