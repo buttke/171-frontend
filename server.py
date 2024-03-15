@@ -38,7 +38,7 @@ jpg_map = {
 
 
 def init_user_data():
-    print('INIT_USER_DATA')
+    #print('INIT_USER_DATA')
 
     now = datetime.now()
     userdata = {
@@ -56,7 +56,7 @@ def init_user_data():
 
 def increment_userdata_attr(session, attr, amount):
     try:
-        print(f'trying to inc {attr}')
+        #print(f'trying to inc {attr}')
 
         if 'userdata' not in session:
             session['userdata'] = init_user_data()
@@ -76,7 +76,7 @@ def start_timer(session, attr):
         prev_type_dur = old_time_info['page_type'] + '_Duration'
         increment_userdata_attr(session, prev_type_dur, elapsed)
 
-    print(f'{attr} TIMER STARTED')
+    #print(f'{attr} TIMER STARTED')
 
     session['time_info'] = {
             'timestamp' : now,
@@ -108,9 +108,9 @@ def refresh_timer(session):
 @app.route("/usertable")
 def usertable():
 
-    print('USERTABLE hit')
+    #print('USERTABLE hit')
     if 'userdata' not in session:
-        print('USERTABLE: reset')
+        #print('USERTABLE: reset')
         session['userdata'] = init_user_data()
 
     return render_template('usertable.html', data=session['userdata'])

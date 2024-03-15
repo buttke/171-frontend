@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product_name }}</title>
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
+{% extends 'sim_subpage_head.html' %}
 
-    <script>
-        document.addEventListener('click', function() {
-            window.parent.postMessage('iframeClicked', '*'); // Adjust '*' to a more specific origin for security
-        });
-    </script>
+{% block content %}
 
-    <style>
-        .work-sans {
-            font-family: 'Work Sans', sans-serif;
-        }
-                
-        #menu-toggle:checked + #menu {
-            display: block;
-        }
-        
-        .hover\:grow {
-            transition: all 0.3s;
-            transform: scale(1);
-        }
-        
-        .hover\:grow:hover {
-            transform: scale(1.02);
-        }
-        
-    </style>
-
-
-</head>
 <body class="work-sans bg-gray-100">
     <div class="container mx-auto mt-10">
         <div class="bg-white p-5 rounded shadow-sm">
@@ -51,5 +18,5 @@
         </div>
     </div>
 </body>
-</html>
 
+{% endblock %}
